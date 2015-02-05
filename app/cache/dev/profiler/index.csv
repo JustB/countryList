@@ -20,3 +20,7 @@ aea241,127.0.0.1,GET,http://localhost:8000/country/,1423130267,
 92d482,127.0.0.1,GET,http://localhost:8000/country/list,1423130270,
 e9b0c8,127.0.0.1,GET,http://localhost:8000/country/list,1423130298,
 b8bf0b,127.0.0.1,GET,http://localhost:8000/country/csv,1423130305,
+6fe2ed,127.0.0.1,GET,http://localhost:8000/,1423130471,
+414c58,127.0.0.1,GET,http://localhost:8000/,1423130528,3c5385
+3c5385,127.0.0.1,GET,http://localhost:8000/,1423130528,
+680df7,127.0.0.1,GET,http://localhost:8000/,1423130566,

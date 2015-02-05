@@ -7,3 +7,6 @@ list_country:
 food_panda_country_homepage:
     path:     /country/
     defaults: { _controller: FoodPandaCountryBundle:Country:index }
+_welcome:
+    path:     /
+    defaults: { _controller: FoodPandaCountryBundle:Country:index }
