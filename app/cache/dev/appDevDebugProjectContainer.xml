@@ -656,6 +656,7 @@
     </parameter>
   </parameters>
   <services>
+    <service id="pastebin" class="FoodPanda\CountryBundle\Pastebin"/>
     <service id="controller_name_converter" class="Symfony\Bundle\FrameworkBundle\Controller\ControllerNameParser" public="false">
       <tag name="monolog.logger" channel="request"/>
       <argument type="service" id="kernel"/>

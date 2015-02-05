@@ -143,6 +143,7 @@ class appDevDebugProjectContainer extends Container
             'monolog.logger.security' => 'getMonolog_Logger_SecurityService',
             'monolog.logger.templating' => 'getMonolog_Logger_TemplatingService',
             'monolog.logger.translation' => 'getMonolog_Logger_TranslationService',
+            'pastebin' => 'getPastebinService',
             'profiler' => 'getProfilerService',
             'profiler_listener' => 'getProfilerListenerService',
             'property_accessor' => 'getPropertyAccessorService',
@@ -1760,6 +1761,19 @@ class appDevDebugProjectContainer extends Container
         $instance->pushHandler($this->get('monolog.handler.debug'));
 
         return $instance;
+    }
+
+    /**
+     * Gets the 'pastebin' service.
+     *
+     * This service is shared.
+     * This method always returns the same instance of the service.
+     *
+     * @return \FoodPanda\CountryBundle\Pastebin A FoodPanda\CountryBundle\Pastebin instance.
+     */
+    protected function getPastebinService()
+    {
+        return $this->services['pastebin'] = new \FoodPanda\CountryBundle\Pastebin();
     }
 
     /**

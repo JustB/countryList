@@ -27,7 +27,20 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $context = $this->context;
         $request = $this->request;
 
-        if (0 === strpos($pathinfo, '/assetic')) {
+        if (0 === strpos($pathinfo, '/assetic/bootstrap_')) {
+            if (0 === strpos($pathinfo, '/assetic/bootstrap_js')) {
+                // _assetic_bootstrap_js
+                if ($pathinfo === '/assetic/bootstrap_js.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_bootstrap_js',);
+                }
+
+                // _assetic_bootstrap_js_0
+                if ($pathinfo === '/assetic/bootstrap_js_bootstrap_1.js') {
+                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_0',);
+                }
+
+            }
+
             if (0 === strpos($pathinfo, '/assetic/bootstrap_css')) {
                 // _assetic_bootstrap_css
                 if ($pathinfo === '/assetic/bootstrap_css.css') {
@@ -45,32 +58,6 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                         return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_css',  'pos' => 1,  '_format' => 'css',  '_route' => '_assetic_bootstrap_css_1',);
                     }
 
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/assetic/jquery')) {
-                // _assetic_jquery
-                if ($pathinfo === '/assetic/jquery.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'jquery',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_jquery',);
-                }
-
-                // _assetic_jquery_0
-                if ($pathinfo === '/assetic/jquery_jquery_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'jquery',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_jquery_0',);
-                }
-
-            }
-
-            if (0 === strpos($pathinfo, '/assetic/bootstrap_js')) {
-                // _assetic_bootstrap_js
-                if ($pathinfo === '/assetic/bootstrap_js.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_bootstrap_js',);
-                }
-
-                // _assetic_bootstrap_js_0
-                if ($pathinfo === '/assetic/bootstrap_js_bootstrap_1.js') {
-                    return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_js',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_bootstrap_js_0',);
                 }
 
             }
@@ -116,6 +103,19 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             // _assetic_bootstrap_glyphicons_woff_0
             if ($pathinfo === '/fonts/glyphicons-halflings-regular_glyphicons-halflings-regular_1.woff') {
                 return array (  '_controller' => 'assetic.controller:render',  'name' => 'bootstrap_glyphicons_woff',  'pos' => 0,  '_format' => 'woff',  '_route' => '_assetic_bootstrap_glyphicons_woff_0',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/assetic/jquery')) {
+            // _assetic_jquery
+            if ($pathinfo === '/assetic/jquery.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'jquery',  'pos' => NULL,  '_format' => 'js',  '_route' => '_assetic_jquery',);
+            }
+
+            // _assetic_jquery_0
+            if ($pathinfo === '/assetic/jquery_jquery_1.js') {
+                return array (  '_controller' => 'assetic.controller:render',  'name' => 'jquery',  'pos' => 0,  '_format' => 'js',  '_route' => '_assetic_jquery_0',);
             }
 
         }

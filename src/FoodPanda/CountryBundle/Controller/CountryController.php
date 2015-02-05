@@ -14,7 +14,9 @@ class CountryController extends Controller
 
     public function showAction()
     {
-        $countryList = $this->getList();
+        $pastebin = $this->get('pastebin');
+        $countryList = $pastebin->getList();
+//        $countryList = $this->getList();
         return $this->render( 'FoodPandaCountryBundle:Country:show.html.twig', array( 'list' => $countryList ) );
     }
 
@@ -27,10 +29,7 @@ class CountryController extends Controller
 
             $handle = fopen( 'php://output', 'w+' );
 
-            // Add a row with the names of the columns for the CSV file
             fputcsv( $handle, array( 'CountryName', 'CountryCode' ), ';' );
-            // Query data from database
-
             // Add the data
             foreach ($countryList as $name => $code) {
                 fputcsv( $handle, array(
