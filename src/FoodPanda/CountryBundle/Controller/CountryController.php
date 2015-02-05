@@ -16,13 +16,13 @@ class CountryController extends Controller
     {
         $pastebin = $this->get('pastebin');
         $countryList = $pastebin->getList();
-//        $countryList = $this->getList();
         return $this->render( 'FoodPandaCountryBundle:Country:show.html.twig', array( 'list' => $countryList ) );
     }
 
     public function downloadAction()
     {
-        $countryList = $this->getList();
+        $pastebin = $this->get('pastebin');
+        $countryList = $pastebin->getList();
 
         $response = new StreamedResponse();
         $response->setCallback( function () use ( $countryList ) {
@@ -49,19 +49,19 @@ class CountryController extends Controller
 
     }
 
-    private function getList()
-    {
-        $rawCountryList = file_get_contents( 'http://pastebin.com/raw.php?i=943PQQ0n' );
-        $rawCountryList = implode( "\n", array_slice( explode( "\n", $rawCountryList ), 3 ) );
-        $rawCountryList = explode( "\r\n", $rawCountryList );
-        array_pop( $rawCountryList );
-        $countryList = [ ];
-
-        foreach ($rawCountryList as $country) {
-            $pair                  = explode( '  ', $country );
-            $countryList[$pair[1]] = $pair[0];
-        }
-        ksort( $countryList );
-        return $countryList;
-    }
+//    private function getList()
+//    {
+//        $rawCountryList = file_get_contents( 'http://pastebin.com/raw.php?i=943PQQ0n' );
+//        $rawCountryList = implode( "\n", array_slice( explode( "\n", $rawCountryList ), 3 ) );
+//        $rawCountryList = explode( "\r\n", $rawCountryList );
+//        array_pop( $rawCountryList );
+//        $countryList = [ ];
+//
+//        foreach ($rawCountryList as $country) {
+//            $pair                  = explode( '  ', $country );
+//            $countryList[$pair[1]] = $pair[0];
+//        }
+//        ksort( $countryList );
+//        return $countryList;
+//    }
 }
