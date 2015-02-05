@@ -1,3 +1,6 @@
-Country
-<a href="">Download CSV</a>
-<a href="">Show Country List</a>
+{% extends '::base.html.twig' %}
+{% block body %}
+    <h1>Please, choose your action</h1>
+    <a class="btn btn-default" href="{{ path('list_country') }}">Show Country List</a>
+    <a  class="btn btn-default"href="{{ path('csv_country') }}">Download CSV</a>
+{% endblock %}

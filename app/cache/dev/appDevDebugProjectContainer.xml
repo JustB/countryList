@@ -2357,6 +2357,11 @@
     <service id="assetic.asset_manager" class="Assetic\Factory\LazyAssetManager">
       <argument type="service" id="assetic.asset_factory"/>
       <argument type="collection">
+        <argument key="config" type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Loader\ConfigurationLoader" public="false">
+            <tag name="assetic.formula_loader" alias="config"/>
+          </service>
+        </argument>
         <argument key="twig" type="service">
           <service class="Assetic\Factory\Loader\CachedFormulaLoader" public="false">
             <tag name="assetic.formula_loader" alias="twig"/>
@@ -2378,6 +2383,76 @@
           </service>
         </argument>
       </argument>
+      <call method="addResource">
+        <argument type="service">
+          <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\ConfigurationResource" public="false">
+            <tag name="assetic.formula_resource" loader="config"/>
+            <argument type="collection">
+              <argument key="bootstrap_js" type="collection">
+                <argument type="collection">
+                  <argument>/var/www/foodpanda/app/../vendor/twitter/bootstrap/dist/js/bootstrap.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+              <argument key="bootstrap_css" type="collection">
+                <argument type="collection">
+                  <argument>/var/www/foodpanda/app/../vendor/twitter/bootstrap/dist/css/bootstrap.css</argument>
+                  <argument>/var/www/foodpanda/app/../vendor/twitter/bootstrap/dist/css/bootstrap-theme.css</argument>
+                </argument>
+                <argument type="collection">
+                  <argument>cssrewrite</argument>
+                </argument>
+                <argument type="collection"/>
+              </argument>
+              <argument key="bootstrap_glyphicons_ttf" type="collection">
+                <argument type="collection">
+                  <argument>/var/www/foodpanda/app/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.ttf</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection">
+                  <argument key="output">fonts/glyphicons-halflings-regular.ttf</argument>
+                </argument>
+              </argument>
+              <argument key="bootstrap_glyphicons_eot" type="collection">
+                <argument type="collection">
+                  <argument>/var/www/foodpanda/app/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.eot</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection">
+                  <argument key="output">fonts/glyphicons-halflings-regular.eot</argument>
+                </argument>
+              </argument>
+              <argument key="bootstrap_glyphicons_svg" type="collection">
+                <argument type="collection">
+                  <argument>/var/www/foodpanda/app/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.svg</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection">
+                  <argument key="output">fonts/glyphicons-halflings-regular.svg</argument>
+                </argument>
+              </argument>
+              <argument key="bootstrap_glyphicons_woff" type="collection">
+                <argument type="collection">
+                  <argument>/var/www/foodpanda/app/../vendor/twitter/bootstrap/dist/fonts/glyphicons-halflings-regular.woff</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection">
+                  <argument key="output">fonts/glyphicons-halflings-regular.woff</argument>
+                </argument>
+              </argument>
+              <argument key="jquery" type="collection">
+                <argument type="collection">
+                  <argument>/var/www/foodpanda/app/../vendor/components/jquery/jquery.js</argument>
+                </argument>
+                <argument type="collection"/>
+                <argument type="collection"/>
+              </argument>
+            </argument>
+          </service>
+        </argument>
+        <argument>config</argument>
+      </call>
       <call method="addResource">
         <argument type="service">
           <service class="Symfony\Bundle\AsseticBundle\Factory\Resource\DirectoryResource" public="false">
