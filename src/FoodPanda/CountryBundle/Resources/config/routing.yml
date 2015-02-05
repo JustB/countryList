@@ -1,0 +1,9 @@
+csv_country:
+    path: /country/csv
+    defaults: {_controller: FoodPandaCountryBundle:Default:download}
+list_country:
+    path: /country/list
+    defaults: {_controller: FoodPandaCountryBundle:Default:show}
+food_panda_country_homepage:
+    path:     /country/
+    defaults: { _controller: FoodPandaCountryBundle:Default:index }

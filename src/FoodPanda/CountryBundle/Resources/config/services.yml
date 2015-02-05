@@ -1,0 +1,4 @@
+services:
+#    food_panda_country.example:
+#        class: FoodPanda\CountryBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
