@@ -130,12 +130,12 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         if (0 === strpos($pathinfo, '/country')) {
             // csv_country
             if ($pathinfo === '/country/csv') {
-                return array (  '_controller' => 'FoodPanda\\CountryBundle\\Controller\\DefaultController::downloadAction',  '_route' => 'csv_country',);
+                return array (  '_controller' => 'FoodPanda\\CountryBundle\\Controller\\CountryController::downloadAction',  '_route' => 'csv_country',);
             }
 
             // list_country
             if ($pathinfo === '/country/list') {
-                return array (  '_controller' => 'FoodPanda\\CountryBundle\\Controller\\DefaultController::showAction',  '_route' => 'list_country',);
+                return array (  '_controller' => 'FoodPanda\\CountryBundle\\Controller\\CountryController::showAction',  '_route' => 'list_country',);
             }
 
             // food_panda_country_homepage
@@ -144,7 +144,7 @@ class appDevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
                     return $this->redirect($pathinfo.'/', 'food_panda_country_homepage');
                 }
 
-                return array (  '_controller' => 'FoodPanda\\CountryBundle\\Controller\\DefaultController::indexAction',  '_route' => 'food_panda_country_homepage',);
+                return array (  '_controller' => 'FoodPanda\\CountryBundle\\Controller\\CountryController::indexAction',  '_route' => 'food_panda_country_homepage',);
             }
 
         }
